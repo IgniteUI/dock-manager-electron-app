@@ -25,7 +25,63 @@
  *  });
  * ```
  */
-
+import { defineCustomElements } from 'igniteui-dockmanager/loader';
+import { IgcDockManagerComponent, IgcDockManagerPaneType, IgcSplitPaneOrientation } from 'igniteui-dockmanager';
 import './index.css';
 
-console.log('👋 This message is being logged by "renderer.js", included via webpack');
+defineCustomElements();
+
+/**
+ * Generates the initial content of the panes
+ */
+const generateContent = (slot: string, url: string): HTMLElement => {
+    const div1 = document.createElement('DIV');
+    div1.classList.add("content-div");
+    div1.slot = slot;
+
+    const iframe1 = document.createElement('IFRAME') as HTMLIFrameElement;
+    iframe1.src = url;
+
+    div1.appendChild(iframe1);
+
+    return div1;
+}
+
+const dockManager = document.getElementById('dockManager') as IgcDockManagerComponent;
+const content1 = generateContent('content1', 'https://www.infragistics.com/angular-demos-lob/grid/grid');
+const content2 = generateContent('content2', 'https://www.infragistics.com/angular-demos-dv/charts/category-chart-overview');
+const content3 = generateContent('content3', 'https://www.infragistics.com/angular-demos-dv/charts/pie-chart-overview');
+
+dockManager.appendChild(content1);
+dockManager.appendChild(content2);
+dockManager.appendChild(content3);
+
+dockManager.layout = {
+    rootPane: {
+        type: IgcDockManagerPaneType.splitPane,
+        orientation: IgcSplitPaneOrientation.horizontal,
+        panes: [
+            {
+                type: IgcDockManagerPaneType.contentPane,
+                contentId: 'content1',
+                header: 'Grid'
+            },
+            {
+                type: IgcDockManagerPaneType.splitPane,
+                orientation: IgcSplitPaneOrientation.vertical,
+                panes: [
+                    {
+                        type: IgcDockManagerPaneType.contentPane,
+                        contentId: 'content2',
+                        header: 'Chart'
+                    },
+                    {
+                        type: IgcDockManagerPaneType.contentPane,
+                        contentId: 'content3',
+                        header: 'Pie Chart'
+                    }
+                ]
+            }
+        ]
+    }
+};
