@@ -84,6 +84,6 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "igniteui-dockmanager": "^1.4.0-beta.2"
+    "igniteui-dockmanager": "^1.4.0"
   }
 }
