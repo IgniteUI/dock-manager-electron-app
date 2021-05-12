@@ -1,6 +1,6 @@
 {
   "name": "dock-manager-electron-app",
-  "productName": "dock-manager-electron-app",
+  "productName": "Dock Manager Electron App",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
