@@ -92,7 +92,6 @@ const handleDocumentDragOver = (event: DragEvent) => {
 }
 
 const handleDocumentDrop = async (event: DragEvent) => {
-    console.log('document drop');
     const contentId = (dockManager.draggedPane as IgcContentPane).contentId;
 
     const docked = await dockManager.dropPane();
