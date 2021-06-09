@@ -246,9 +246,9 @@ if (currentWindow.isMain !== false) {
     currentWindow.childWindows = [];
 
     // execute this only for the main window
-    const content1 = generateContent('content1', 'https://www.infragistics.com/angular-demos-lob/grid/grid');
-    const content2 = generateContent('content2', 'https://www.infragistics.com/angular-demos-dv/charts/category-chart-overview');
-    const content3 = generateContent('content3', 'https://www.infragistics.com/angular-demos-dv/charts/pie-chart-overview');
+    const content1 = generateContent('content1', 'https://www.infragistics.com/angular-demos-grid-crm/grid-crm');
+    const content2 = generateContent('content2', 'https://www.infragistics.com/angular-demos-dv/charts/data-chart-bar-chart-multiple-sources');
+    const content3 = generateContent('content3', 'https://www.infragistics.com/angular-demos-dv/charts/doughnut-chart-legend');
     
     dockManager.appendChild(content1);
     dockManager.appendChild(content2);
@@ -257,7 +257,7 @@ if (currentWindow.isMain !== false) {
     dockManager.layout = {
         rootPane: {
             type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            orientation: IgcSplitPaneOrientation.vertical,
             panes: [
                 {
                     type: IgcDockManagerPaneType.contentPane,
@@ -266,17 +266,17 @@ if (currentWindow.isMain !== false) {
                 },
                 {
                     type: IgcDockManagerPaneType.splitPane,
-                    orientation: IgcSplitPaneOrientation.vertical,
+                    orientation: IgcSplitPaneOrientation.horizontal,
                     panes: [
                         {
                             type: IgcDockManagerPaneType.contentPane,
                             contentId: 'content2',
-                            header: 'Chart'
+                            header: 'Bar Chart'
                         },
                         {
                             type: IgcDockManagerPaneType.contentPane,
                             contentId: 'content3',
-                            header: 'Pie Chart'
+                            header: 'Donut Chart'
                         }
                     ]
                 }
